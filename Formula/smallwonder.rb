@@ -4,11 +4,13 @@ class Smallwonder < Formula
   desc "Troupe of small local AI models on your Mac that act like one big one"
   homepage "https://github.com/nsiddharth/smallwonder"
   url "https://github.com/nsiddharth/smallwonder/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "PLACEHOLDER_SHA"
+  sha256 "738e18048ab4b48cad0b34fce159528e8f9d6cc3a822c9fbcb76c547ba53431c"
   license "MIT"
 
   depends_on "python@3.12"
   depends_on "uv"
+  depends_on arch: :arm64
+  depends_on macos: :sonoma
 
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
