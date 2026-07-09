@@ -3,8 +3,8 @@ class Smallwonder < Formula
 
   desc "Troupe of small local AI models on your Mac that act like one big one"
   homepage "https://github.com/nsiddharth/smallwonder"
-  url "https://github.com/nsiddharth/smallwonder/archive/refs/tags/v0.1.6.tar.gz"
-  sha256 "1eb92bfa0a788fcdc340d09fb24b77238be5fc77f2e6f1221121509f87f93879"
+  url "https://github.com/nsiddharth/smallwonder/archive/refs/tags/v0.1.7.tar.gz"
+  sha256 "0549eea0e59b9848b274b3677ce0cb6a8643b1d32d2f9472cb699da599ddc289"
   license "MIT"
 
   depends_on "python@3.12"
