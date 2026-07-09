@@ -9,7 +9,6 @@ class Smallwonder < Formula
 
   depends_on "python@3.12"
   depends_on "uv"
-  depends_on arch: :arm64
   depends_on macos: :sonoma
 
   resource "annotated-doc" do
@@ -102,6 +101,11 @@ class Smallwonder < Formula
     sha256 "c244a6bd558886fe3f8780efb6bdd28bb9aff005a94eedebaa5cb32926fe2f7e"
   end
   def install
+    # Gate on the real hardware, not brew's own arch: an Intel-prefix brew
+    # running under Rosetta on Apple Silicon reports x86_64 but the stack
+    # works fine there (inference runs natively via LM Studio/MLX).
+    on_apple_silicon = Utils.safe_popen_read("/usr/sbin/sysctl", "-n", "hw.optional.arm64").strip == "1"
+    odie "smallwonder requires an Apple Silicon Mac (M1 or newer)." unless on_apple_silicon
     virtualenv_install_with_resources
   end
 
